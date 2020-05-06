@@ -1,0 +1,15 @@
+version: 2.1
+orbs:
+  node: circleci/node@1.1.6
+jobs:
+  build:
+    docker:
+      - image: node:13-alpine
+    steps:
+      - checkout
+      - run: |
+          docker build -t travis-tutorial .
+workflows:
+    build:
+      jobs:
+        - build
