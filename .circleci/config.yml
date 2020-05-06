@@ -7,9 +7,10 @@ jobs:
       - image: node:13-alpine
     steps:
       - checkout
+      - setup_remote_docker
       - run: |
           docker build -t travis-tutorial .
 workflows:
-    build:
-      jobs:
-        - build
+  build:
+    jobs:
+      - build
